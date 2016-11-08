@@ -21,15 +21,19 @@ class Application extends Component {
     const scores = [];
     const rawWord = this.state.word;
     const userWord = this.state.word.toUpperCase().split('');
-    console.log(typeof this.state.word);
+    if (rawWord.length > 0) {
+      userWord.forEach((letter)=>{
+        scores.push(parseInt(letterScores[letter], 10));
+      });
+      const score = scores.reduce((a, b)=>{
+        return a + b;
+      }, 0);
+      this.setState({score:score});
+    }
+    else {
+      this.setState({warning:true});
+    }
 
-    userWord.forEach((letter)=>{
-      scores.push(parseInt(letterScores[letter], 10));
-    });
-    const score = scores.reduce((a, b)=>{
-      return a + b;
-    }, 0);
-    this.setState({score:score});
   }
 
   render() {
@@ -50,7 +54,7 @@ const {score, warning} = this.state;
 
       <div>
         <h1>Scrabble Scorer!</h1>
-        {warning ? <p>Error! Please enter a valid word!</p> : ''}
+        {warning ? <p className="warning">Error! Please enter a valid word!</p> : ''}
         <input type="text" onChange={(e)=>{this.addWord(e)}}/>
         <button onClick={()=>{this.scoreWord(letterScores)}}>Score Word</button>
         { score ? <p>The score for your word is: {score}</p> : <p>Please enter a word!</p>}
