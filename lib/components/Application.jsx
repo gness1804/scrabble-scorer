@@ -22,18 +22,18 @@ class Application extends Component {
     const rawWord = this.state.word;
     const userWord = this.state.word.toUpperCase().split('');
     if (rawWord.length > 0) {
-      userWord.forEach((letter)=>{
+      userWord.forEach((letter) => {
         scores.push(parseInt(letterScores[letter], 10));
       });
-      const score = scores.reduce((a, b)=>{
+      const score = scores.reduce((a, b) => {
         return a + b;
       }, 0);
-      this.setState({score:score});
+      this.setState({ score: score });
     }
     else {
+      this.setState({ score: 0 });
       this.setState({warning:true});
     }
-
   }
 
   render() {
@@ -48,7 +48,7 @@ class Application extends Component {
   Y: 4, Z: 10
 }
 
-const {score, warning} = this.state;
+    const { score, warning } = this.state;
 
     return (
 
@@ -57,7 +57,7 @@ const {score, warning} = this.state;
         {warning ? <p className="warning">Error! Please enter a valid word!</p> : ''}
         <input type="text" onChange={(e)=>{this.addWord(e)}}/>
         <button onClick={()=>{this.scoreWord(letterScores)}}>Score Word</button>
-        { score ? <p>The score for your word is: {score}</p> : <p>Please enter a word!</p>}
+        <p>The score for your word is: {score}</p>
       </div>
     );
   }
