@@ -8190,13 +8190,9 @@
 	
 	var _Application2 = _interopRequireDefault(_Application);
 	
-	var _vanilla = __webpack_require__(470);
-	
-	var _vanilla2 = _interopRequireDefault(_vanilla);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(471);
+	__webpack_require__(470);
 	
 	(0, _reactDom.render)(_react2.default.createElement(_Application2.default, null), document.getElementById('application'));
 
@@ -29405,7 +29401,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// const ReactDOM = require('react-dom');
+	var ReactDOM = __webpack_require__(331);
 	
 	var Application = function (_Component) {
 	  _inherits(Application, _Component);
@@ -29413,122 +29409,16 @@
 	  function Application() {
 	    _classCallCheck(this, Application);
 	
-	    var _this = _possibleConstructorReturn(this, (Application.__proto__ || Object.getPrototypeOf(Application)).call(this));
-	
-	    _this.state = {
-	      word: '',
-	      score: null,
-	      warning: false,
-	      multiplier: null
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (Application.__proto__ || Object.getPrototypeOf(Application)).apply(this, arguments));
 	  }
 	
 	  _createClass(Application, [{
-	    key: 'addWord',
-	    value: function addWord(e) {
-	      var word = e.target.value;
-	      this.setState({ word: word });
-	    }
-	  }, {
-	    key: 'addMultiplier',
-	    value: function addMultiplier(e) {
-	      var number = e.target.value;
-	      this.setState({ multiplier: number });
-	    }
-	  }, {
-	    key: 'scoreWord',
-	    value: function scoreWord(letterScores, multiplier) {
-	      var scores = [];
-	      var rawWord = this.state.word;
-	      var userWord = this.state.word.toUpperCase().trim().split('');
-	      var wordIsValid = rawWord.length > 0 && isNaN(parseInt(rawWord, 10));
-	      if (wordIsValid) {
-	        userWord.forEach(function (letter) {
-	          scores.push(parseInt(letterScores[letter], 10));
-	        });
-	        var score = scores.reduce(function (a, b) {
-	          return a + b;
-	        }, 0);
-	        this.setState({ score: score * (multiplier || 1) });
-	        this.setState({ warning: false });
-	      } else {
-	        this.setState({ score: 0 });
-	        this.setState({ warning: true });
-	      }
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-	
-	      var letterScores = {
-	        A: 1,
-	        B: 3,
-	        C: 3,
-	        D: 2,
-	        E: 1,
-	        F: 4,
-	        G: 2,
-	        H: 4,
-	        I: 1,
-	        J: 8,
-	        K: 5,
-	        L: 1,
-	        M: 3,
-	        N: 1,
-	        O: 1,
-	        P: 3,
-	        Q: 10,
-	        R: 1,
-	        S: 1,
-	        T: 1,
-	        U: 1,
-	        V: 4,
-	        W: 4,
-	        X: 8,
-	        Y: 4,
-	        Z: 10
-	      };
-	
-	      var _state = this.state,
-	          score = _state.score,
-	          warning = _state.warning,
-	          multiplier = _state.multiplier;
-	
-	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Scrabble Scorer!'
-	        ),
-	        warning ? _react2.default.createElement(
-	          'p',
-	          { className: 'warning' },
-	          'Error! Please enter a valid word!'
-	        ) : '',
-	        _react2.default.createElement('input', { type: 'text', placeholder: 'Word', onChange: function onChange(e) {
-	            _this2.addWord(e);
-	          } }),
-	        _react2.default.createElement('input', { type: 'number', placeholder: 'Multiplier', onChange: function onChange(e) {
-	            _this2.addMultiplier(e);
-	          } }),
-	        _react2.default.createElement(
-	          'button',
-	          { onClick: function onClick() {
-	              _this2.scoreWord(letterScores, multiplier);
-	            } },
-	          'Score Word'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'The score for your word is: ',
-	          score
-	        )
+	        'Hello! This is a test.'
 	      );
 	    }
 	  }]);
@@ -29540,27 +29430,15 @@
 
 /***/ },
 /* 470 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	function dummy() {
-	  console.log('this is a dummy function');
-	}
-	
-	dummy();
-
-/***/ },
-/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(472);
+	var content = __webpack_require__(471);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(474)(content, {});
+	var update = __webpack_require__(473)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -29577,10 +29455,10 @@
 	}
 
 /***/ },
-/* 472 */
+/* 471 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(473)();
+	exports = module.exports = __webpack_require__(472)();
 	// imports
 	
 	
@@ -29591,7 +29469,7 @@
 
 
 /***/ },
-/* 473 */
+/* 472 */
 /***/ function(module, exports) {
 
 	/*
@@ -29647,7 +29525,7 @@
 
 
 /***/ },
-/* 474 */
+/* 473 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
