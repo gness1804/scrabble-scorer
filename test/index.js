@@ -22,4 +22,8 @@ describe('vanilla', () => {
     assert.strictEqual(scoreWord(7), 0);
   });
 
+  it('scoreWord should strip whitespace from entered words', () => {
+    assert.strictEqual(scoreWord(' hello '), 8);
+  })
+
 });
