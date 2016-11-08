@@ -11,11 +11,13 @@ class Application extends Component {
   }
 
   addWord(e){
-    console.log(e.target.value);
+    const word = e.target.value;
+    this.setState({word:word});
   }
 
   scoreWord(letterScores) {
-
+    const userWord = this.state.word;
+    console.log(userWord.split(''));
   }
 
   render() {
