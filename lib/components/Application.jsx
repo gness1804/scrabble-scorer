@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-// const ReactDOM = require('react-dom');
-
 class Application extends Component {
   constructor() {
     super();
