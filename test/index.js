@@ -10,5 +10,8 @@ describe('vanilla', () => {
     assert.isFunction(scoreWord);
   });
 
+  it('scoreWord should return a score for a word', () => {
+    assert.strictEqual();
+  });
 
 });
