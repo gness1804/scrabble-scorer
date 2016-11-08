@@ -9,6 +9,7 @@ class Application extends Component {
       word: '',
       score: null,
       warning: false,
+      multiplier: null,
     }
   }
 
@@ -17,7 +18,12 @@ class Application extends Component {
     this.setState({ word: word });
   }
 
-  scoreWord(letterScores) {
+  addMultiplier(e){
+    const number = e.target.value;
+    this.setState({ multiplier: number });
+  }
+
+  scoreWord(letterScores, multiplier) {
     const scores = [];
     const rawWord = this.state.word;
     const userWord = this.state.word.toUpperCase().trim().split('');
@@ -50,15 +56,16 @@ class Application extends Component {
   Y: 4, Z: 10
 }
 
-    const { score, warning } = this.state;
+    const { score, warning, multiplier } = this.state;
 
     return (
 
       <div>
         <h1>Scrabble Scorer!</h1>
         {warning ? <p className="warning">Error! Please enter a valid word!</p> : ''}
-        <input type="text" onChange={(e)=>{this.addWord(e)}}/>
-        <button onClick={()=>{this.scoreWord(letterScores)}}>Score Word</button>
+        <input type="text" placeholder="Word" onChange={(e)=>{this.addWord(e)}} />
+        <input type="number" placeholder="Multiplier" onChange={(e)=>{this.addMultiplier(e)}} />
+        <button onClick={()=>{this.scoreWord(letterScores, multiplier)}}>Score Word</button>
         <p>The score for your word is: {score}</p>
       </div>
     );
