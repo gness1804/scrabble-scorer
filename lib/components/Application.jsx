@@ -20,7 +20,7 @@ class Application extends Component {
   scoreWord(letterScores) {
     const scores = [];
     const rawWord = this.state.word;
-    const userWord = this.state.word.toUpperCase().split('');
+    const userWord = this.state.word.toUpperCase().trim().split('');
     const wordIsValid = rawWord.length > 0 && isNaN(parseInt(rawWord, 10));
     if (wordIsValid) {
       userWord.forEach((letter) => {
