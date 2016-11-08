@@ -11,7 +11,7 @@ describe('vanilla', () => {
   });
 
   it('scoreWord should return a score for a word', () => {
-    assert.strictEqual();
+    assert.strictEqual(scoreWord('hello'), 8);
   });
 
 });
