@@ -14,14 +14,15 @@ class Application extends Component {
 
   addWord(e){
     const word = e.target.value;
-    this.setState({word:word});
+    this.setState({ word: word });
   }
 
   scoreWord(letterScores) {
     const scores = [];
     const rawWord = this.state.word;
     const userWord = this.state.word.toUpperCase().split('');
-    if (rawWord.length > 0) {
+    // console.log(isNaN(parseInt(rawWord, 10)));
+    if (rawWord.length > 0 && isNaN(parseInt(rawWord, 10))) {
       userWord.forEach((letter) => {
         scores.push(parseInt(letterScores[letter], 10));
       });
@@ -29,10 +30,11 @@ class Application extends Component {
         return a + b;
       }, 0);
       this.setState({ score: score });
+      this.setState({ warning: false });
     }
     else {
       this.setState({ score: 0 });
-      this.setState({warning:true});
+      this.setState({ warning: true });
     }
   }
 
