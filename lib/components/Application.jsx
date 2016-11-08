@@ -16,10 +16,11 @@ class Application extends Component {
   }
 
   scoreWord(letterScores) {
-    const userWord = this.state.word.split('');
-    userWord.forEach((letter)=>{
-      console.log(letter);
-    });
+    const userWord = this.state.word.toUpperCase().split('');
+    console.log(userWord);
+    // userWord.forEach((letter)=>{
+    //   console.log(letterScores[letter]);
+    // });
     // console.log(letterScores['A']);
   }
 
