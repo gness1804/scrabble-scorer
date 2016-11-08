@@ -19,13 +19,9 @@ class Application extends Component {
 
   scoreWord(letterScores) {
     const scores = [];
+    const rawWord = this.state.word;
     const userWord = this.state.word.toUpperCase().split('');
-    // if (this.datsValid(this.state.word)) {
-    //   console.log('it is valid.');
-    // }
-    // else {
-    //   this.setState({warning:true});
-    // }
+    console.log(typeof this.state.word);
 
     userWord.forEach((letter)=>{
       scores.push(parseInt(letterScores[letter], 10));
@@ -35,10 +31,6 @@ class Application extends Component {
     }, 0);
     this.setState({score:score});
   }
-
-  // datsValid(word){
-  //   return typeof word === 'string';
-  // }
 
   render() {
 
