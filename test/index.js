@@ -24,6 +24,10 @@ describe('vanilla', () => {
 
   it('scoreWord should strip whitespace from entered words', () => {
     assert.strictEqual(scoreWord(' hello '), 8);
-  })
+  });
+
+  it('scoreWord should be able to take a multiplier and apply it to the word score', () => {
+    assert.strictEqual(scoreWord('mom', 2), 14);
+  });
 
 });
