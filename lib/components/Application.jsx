@@ -3,9 +3,19 @@ import React, {Component} from 'react';
 const ReactDOM = require('react-dom');
 
 class Application extends Component {
+  constructor(){
+    super();
+    this.state = {
+      word: '',
+    }
+  }
+
+  addWord(e){
+    console.log(e.target.value);
+  }
 
   scoreWord(letterScores) {
-    console.log(letterScores);
+
   }
 
   render() {
@@ -22,7 +32,7 @@ class Application extends Component {
 
     return (
       <div>
-        <input type="text" />
+        <input type="text" onChange={(e)=>{this.addWord(e)}}/>
         <button onClick={()=>{this.scoreWord(letterScores)}}>Score Word</button>
       </div>
     );
