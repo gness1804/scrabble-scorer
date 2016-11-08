@@ -19,9 +19,12 @@ class Application extends Component {
     const scores = [];
     const userWord = this.state.word.toUpperCase().split('');
     userWord.forEach((letter)=>{
-      scores.push(letterScores[letter]);
+      scores.push(parseInt(letterScores[letter], 10));
     });
-    console.log(scores);
+    let score = scores.reduce((a, b)=>{
+      return a + b;
+    }, 0);
+    console.log(score);
   }
 
   render() {
