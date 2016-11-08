@@ -8,7 +8,7 @@ describe('vanilla', () => {
 
   it('should have a function called scoreWord', () => {
     assert.isFunction(scoreWord);
-  })
+  });
 
 
 });
