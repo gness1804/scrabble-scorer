@@ -7,6 +7,7 @@ class Application extends Component {
     super();
     this.state = {
       word: '',
+      score: null,
     }
   }
 
@@ -21,10 +22,10 @@ class Application extends Component {
     userWord.forEach((letter)=>{
       scores.push(parseInt(letterScores[letter], 10));
     });
-    let score = scores.reduce((a, b)=>{
+    const score = scores.reduce((a, b)=>{
       return a + b;
     }, 0);
-    console.log(score);
+    this.setState({score:score});
   }
 
   render() {
@@ -43,6 +44,7 @@ class Application extends Component {
       <div>
         <input type="text" onChange={(e)=>{this.addWord(e)}}/>
         <button onClick={()=>{this.scoreWord(letterScores)}}>Score Word</button>
+        <p>{this.state.score}</p>
       </div>
     );
   }
