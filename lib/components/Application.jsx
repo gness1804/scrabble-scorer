@@ -6,7 +6,7 @@ class Application extends Component {
 
   render() {
     return (
-      <div>Another sanity check.</div>
+      <div>Hello! This is a test.</div>
     );
   }
 
