@@ -35,10 +35,9 @@ class Application extends Component {
       const score = scores.reduce((a, b) => {
         return a + b;
       }, 0);
-      this.setState({ score: score });
+      this.setState({ score: score * (multiplier || 1) });
       this.setState({ warning: false });
-    }
-    else {
+    } else {
       this.setState({ score: 0 });
       this.setState({ warning: true });
     }
