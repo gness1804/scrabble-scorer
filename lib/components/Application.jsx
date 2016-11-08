@@ -8,6 +8,7 @@ class Application extends Component {
     this.state = {
       word: '',
       score: null,
+      warning: false,
     }
   }
 
@@ -19,9 +20,12 @@ class Application extends Component {
   scoreWord(letterScores) {
     const scores = [];
     const userWord = this.state.word.toUpperCase().split('');
-    if (this.datsValid(this.state.word)) {
-      console.log('it is valid.');
-    }
+    // if (this.datsValid(this.state.word)) {
+    //   console.log('it is valid.');
+    // }
+    // else {
+    //   this.setState({warning:true});
+    // }
 
     userWord.forEach((letter)=>{
       scores.push(parseInt(letterScores[letter], 10));
@@ -32,9 +36,9 @@ class Application extends Component {
     this.setState({score:score});
   }
 
-  datsValid(word){
-    return word;
-  }
+  // datsValid(word){
+  //   return typeof word === 'string';
+  // }
 
   render() {
 
@@ -48,11 +52,13 @@ class Application extends Component {
   Y: 4, Z: 10
 }
 
-const {score} = this.state;
+const {score, warning} = this.state;
 
     return (
 
       <div>
+        <h1>Scrabble Scorer!</h1>
+        {warning ? <p>Error! Please enter a valid word!</p> : ''}
         <input type="text" onChange={(e)=>{this.addWord(e)}}/>
         <button onClick={()=>{this.scoreWord(letterScores)}}>Score Word</button>
         { score ? <p>The score for your word is: {score}</p> : <p>Please enter a word!</p>}
