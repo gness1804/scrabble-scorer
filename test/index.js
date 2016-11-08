@@ -18,4 +18,8 @@ describe('vanilla', () => {
     assert.strictEqual(scoreWord(''), 0);
   });
 
+  it('scoreWord should return zero for a number', () => {
+    assert.strictEqual(scoreWord(7), 0);
+  });
+
 });
