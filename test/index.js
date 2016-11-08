@@ -14,4 +14,8 @@ describe('vanilla', () => {
     assert.strictEqual(scoreWord('hello'), 8);
   });
 
+  it('scoreWord should return zero for an empty entry', () => {
+    assert.strictEqual(scoreWord(''), 0);
+  });
+
 });
