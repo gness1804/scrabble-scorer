@@ -1,1 +1,1 @@
-import {assert} from "chai"
+const assert = require('chai');
