@@ -40,11 +40,14 @@ class Application extends Component {
   Y: 4, Z: 10
 }
 
+const {score} = this.state;
+
     return (
+
       <div>
         <input type="text" onChange={(e)=>{this.addWord(e)}}/>
         <button onClick={()=>{this.scoreWord(letterScores)}}>Score Word</button>
-        <p>{this.state.score}</p>
+        { score ? <p>The score for your word is: {score}</p> : <p>Please enter a word!</p>}
       </div>
     );
   }
